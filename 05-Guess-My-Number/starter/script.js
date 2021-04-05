@@ -14,15 +14,19 @@ let currentHighscore = 0;
 let num = Math.trunc(Math.random() * 20) + 1;
 // console.log(num);
 
+function showMessage(message) {
+  messageScore.textContent = message;
+}
+
 checkBtn.addEventListener('click', function () {
   let guessNumber = Number(guessInput.value); // valueAsNumber
 
   if (!guessNumber) {
-    messageScore.textContent = '👎 no number!';
+    showMessage('👎 no number!');
   } else if (guessNumber === num) {
     secretNumber.textContent = num; // ATENÇÃO NESSA LINHHA FIXME
     if (currentScore > 1) {
-      messageScore.textContent = 'Yaaaay 🎉';
+      showMessage('Yaaaay 🎉');
       currentHighscore++;
       highscore.textContent = currentHighscore;
       body.style.backgroundColor = '#60b347';
@@ -30,12 +34,11 @@ checkBtn.addEventListener('click', function () {
     }
   } else if (guessNumber !== num) {
     if (currentScore > 1) {
-      messageScore.textContent =
-        guessNumber > num ? '📈 Too high!' : '📉 Too low!';
+      showMessage(guessNumber > num ? '📈 Too high!' : '📉 Too low!');
       currentScore--;
       score.textContent = currentScore;
     } else {
-      messageScore.textContent = 'Oh no! you lost 😥';
+      showMessage('Oh no! you lost 😥');
     }
   }
 });

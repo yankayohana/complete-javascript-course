@@ -74,7 +74,6 @@ for (const flight of flights.split('+')) {
 
 ///////////////////////////////////////
 // Coding Challenge #4
-
 /* 
 Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
 
